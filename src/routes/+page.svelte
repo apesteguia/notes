@@ -46,10 +46,6 @@
   <div class="fondo">
     {#if mostrar === false}
       <div class="app">
-        <img
-          src="https://www.chanty.com/blog/wp-content/uploads/2020/10/Task-manager-apps-740x380.jpg"
-          alt=""
-        />
         <div class="login">
           <h1>Task app</h1>
           <p>Task app built in svelte and hosted in firebase</p>
@@ -76,22 +72,20 @@
     background-color: rgb(0, 140, 255);
     color: white;
     font-weight: bold;
-    width: 60px;
+    width: 90px;
     height: 40px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
   }
-  img {
-    position: absolute;
-    top: 10%;
-    height: 80%;
-    width: 60%;
-    right: 10%;
-  }
   .app {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#d3d3d3 2px, #ffffff 2px);
+    background-size: 40px 40px;
     display: flex;
-    justify-content: left;
+
+    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -99,22 +93,25 @@
     height: 100%;
   }
   .login {
-    margin-left: 50px;
-    margin-top: 100px;
+    background-color: white;
+    margin-left: 2%;
     display: flex;
+    text-align: center;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
+    border: 1px solid grey;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    margin-top: 40px;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bolder;
     font-family: Roboto;
   }
   .button {
-    margin-left: 20px;
   }
   p {
-    margin-top: -10px;
-    margin-left: 20px;
   }
 </style>

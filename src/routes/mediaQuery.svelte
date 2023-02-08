@@ -1,6 +1,6 @@
 <script>
-  import { onMount } from "svelte";
   // @ts-nocheck
+  import { onMount } from "svelte";
   export let query;
 
   let mql;

@@ -32,6 +32,7 @@
   };
 
   const addTask = async () => {
+    editStatus = false;
     console.log(prueba.titulo === "");
     if (prueba.titulo === "" || prueba.desc === "") {
       error = !error;
@@ -39,16 +40,25 @@
     }
     await addDoc(collection(db, userData.name), prueba);
     crear = !crear;
+    prueba.titulo = "";
+    prueba.desc = "";
   };
 
   const updateTask = async () => {
     try {
+      console.log(prueba.titulo === "");
+      if (prueba.titulo === "" || prueba.desc === "") {
+        error = !error;
+        return;
+      }
       await updateDoc(doc(db, userData.name, currentId), prueba);
     } catch (error) {
       console.error(error);
     }
     crear = !crear;
     editStatus = false;
+    prueba.titulo = "";
+    prueba.desc = "";
   };
 
   const handleSubmit = async (e) => {
@@ -58,11 +68,6 @@
     } else {
       addTask();
     }
-
-    let prueba = {
-      titulo: "",
-      desc: "",
-    };
     currentId = "";
     editStatus = false;
   };
@@ -119,6 +124,7 @@
         </div>
         <label for="">Titulo</label>
         <input
+          id="1"
           maxlength="20"
           bind:value={prueba.titulo}
           type="text"
@@ -128,7 +134,7 @@
           bind:value={prueba.desc}
           type="text"
           name=""
-          id=""
+          id="2"
           placeholder="introduce la tarea"
         />
         <div class="buttons2">
@@ -405,7 +411,8 @@
   }
   .b > button {
     font-family: Inter;
-    height: 30px;
+    height: 40px;
+    width: 100px;
     cursor: pointer;
     font-weight: 500;
   }
@@ -427,5 +434,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    transition: 0.4s;
+  }
+  .tarea:hover {
+    transform: scale(1.05);
+    transition: 0.4s;
   }
 </style>
